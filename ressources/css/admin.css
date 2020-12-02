@@ -1,0 +1,153 @@
+:root{
+    --dark_blue : #2764A3
+}
+
+#admin{
+    display: flex;
+}
+
+.clear{
+    clear: both;
+}
+
+.dash_shadow{
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.dash_shadow:hover , .dash_shadow:focus{
+    box-shadow: 0px 0px 5px var(--light_red);
+    border-radius: 10px;
+}
+
+#admin #sidebar{
+    width: 250px;
+    min-width: 250px;
+    height: 100vh;
+    /* overflow-x: hidden; */
+    background-color: var(--dark_blue);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+    background:var(--dark_blue);
+    color: #efefef;
+    position: relative;
+    transition: all 500ms;
+}
+
+#admin .header img{
+    width: 100px;
+    min-width: 100px;
+    margin-bottom: 15px;
+}
+
+#admin #sidebar_toggler{
+    background-color: var(--dark_blue);
+    width: 20px;
+    height: 50px;
+    position: absolute;
+    top: 50vh;
+    right: -20px;
+    border-radius: 0px 8px 8px 0px;
+    color: #fff;
+    display: block;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+#admin #sidebar_toggler span{
+    transition: all 1s;
+}
+
+#admin .arrow_rotate{
+    transition: all 1s;
+    transform: rotate(180deg);
+}
+
+#admin .negative_margin{
+    margin-left: -250px;
+    transition: all 500ms;
+}
+
+#admin #sidebar .a_and_a_logo{
+    font-weight: bold;
+    font-size: 50px;
+    color: rgba(3, 86, 95, 0.45);
+}
+
+#admin #sidebar .name{
+    font-weight: bold;
+    font-size: 24px;
+    color: #fff;
+}
+
+#admin #sidebar .email{
+    color: #fff;
+}
+
+#admin #sidebar hr{
+    background-color: rgba(255, 255, 255, 0.4);
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 80%;
+}
+
+#admin #sidebar .link{
+    display: inline-block;
+    width: 100%;
+    color: #fff;
+    padding: 5px;
+    position: relative;
+}
+
+#admin #sidebar .icon{
+    position: absolute;
+    left: 20px;
+    top: 3px;
+}
+
+#admin #sidebar .link:hover{
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+#admin #sidebar .active{
+
+}
+
+#admin #content_side{
+    width: 100%;
+    height: 100vh;
+    /* border:solid transparent 1px; */
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+#admin #content_side #top_bar{
+    position: fixed;
+    top: 0; 
+    height: 50px;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    position: relative;
+    padding: 0;
+}
+
+
+#admin #content_side .dashbord_title{
+    margin-top: 70px;
+    font-weight: bold;
+    color: #C1C1C1;
+}
+
+#admin #content_side .title{
+    font-size: 1.5em;
+    margin-top: 70px;
+    font-weight: bolder;
+    color: #C1C1C1;
+}
