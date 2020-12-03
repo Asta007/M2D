@@ -318,6 +318,90 @@ body,html{
     color: #fff;
 }
 
-p{
+/* Login = = = = = = = = = = = = = = = = = = = =  */
+
+#loginpage{
     
+}
+
+#loginpage .content{
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    background-image: url("../img/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+#loginpage .content form{
+    background-color: rgba(255, 255, 255, 0.7);
+    max-width: 350px;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+#loginpage .content form .form-control{
+    outline: none !important;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.9) ;
+}
+
+#loginpage .content form .form-control:focus{
+    outline: none !important;
+    border-radius: 0px;
+    border-bottom: 2px solid var(--darkblue);
+}
+
+#loginpage .content img{
+    width: 150px;
+    display: block;
+    margin: auto;
+}
+
+#loginpage .content form .btn_con{
+    height: 40px;
+    background-color: var(--darkblue);
+    color: #fff;
+}
+
+/* Add prof = = = = = = = = = = = = = = = = = = = =  */
+
+#add_prof{
+
+}
+
+#add_prof .content{
+    position: relative;
+}
+
+#add_prof .content form{
+    border:solid var(--darkblue) 1px;
+    border-radius: 15px;
+}
+
+#add_prof .content .sub_btn{
+    /* background-color: var(--darkblue); */
+    color : #fff
+}
+
+#add_prof .content form img{
+    
+}
+
+#add_prof .content #text_side{
+
+}
+
+#add_prof .content #text_side .big_title{
+    font-size: 1.5em;
+    color: var(--darkblue);
+    font-weight: bolder;
+}
+
+#add_prof .content #text_side p{
+    color: #333;
+    font-size: 0.9em;
 }
