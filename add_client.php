@@ -4,25 +4,27 @@
 
     include('./pdo_connect.php');
 
+    $all_serv = ['cour a domicile','cour de langue','interpretariat et traduction','librairie'];
+    if(isset($_GET['serv'])){
+        $chosen_serv = $_GET['serv'];
+    }
+
     if(isset($_POST['submit'])){
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
-        $cni = $_POST['cni'];
         $tel = $_POST['telephone'];
         $adress = $_POST['adress'];
-        $niveau = $_POST['niveau'];
-        $matiere = $_POST['matiere'];
-        $tarif = $_POST['tarif'];
+        $service = $_POST['serv'];
 
         // $query="INSERT INTO prof VALUES('' , $nom ,$prenom ,$cni ,$adress ,$tel ,$matiere ,$niveau ,$tarif)";
-        $sql = $pdo->prepare("INSERT INTO prof (nom, prenom, cni, adress, tel, matiere, niveau_detude, tarif_horaire) VALUES('$nom' ,'$prenom' ,'$cni' ,'$adress' ,'$tel' ,'$matiere' ,'$niveau' ,'$tarif')");
+        $sql = $pdo->prepare("INSERT INTO client (nom, prenom, adress, telephone, serv) VALUES('$nom' ,'$prenom' ,'$adress' ,'$tel','$service')");
         if($sql->execute()){
             header("location:success_add.php?prenom=$prenom");
         }
         else{
             ?>
             <script>
-                alert("une erreur est survenu l'ors de l'insertion");
+                alert("une erreur eun survenu l'ors de l'insertion");
             </script>
             <?php
         }
@@ -38,14 +40,6 @@
     <?php include('./headtag.php') ?>
 
 <body>
-
-    <!-- <div id="header"> -->
-
-    <!-- <div id="topbar">
-        <p class="text col-11 mx-auto">
-            77 356 54 68 / someone@gmail.com
-        </p>
-    </div> -->
 
     <nav class="" id="primary_navbar">
 
@@ -68,7 +62,7 @@
                     </div>
                 </div>
                 <a href="#" class="mr-lg-4 mr-md-3 link"> a propos </a>
-                <a href="index.php#sec_rejoindre" class="mr-lg-4 mr-md-3 link"> contacts </a>
+                <a href="#sec_rejoindre" class="mr-lg-4 mr-md-3 link"> contacts </a>
                 <a id="con_btn" href="./login.php" class="mr-lg-4 mr-md-3 link"> connexion </a>
             </div>
 
@@ -76,12 +70,12 @@
 
     </nav>
 
-   <div id="add_prof">
+   <div id="add_client">
        <div class="row content mt-5 col-md-8 mx-auto">
            
             <div id="text_side" class="col-6 p-4 mt-5">
                 <p class="big_title">
-                    Rejoindre l'equipe en tant que professeur
+                    Je m'inscrit en tant qu'eleve
                 </p>
                 <p class="text-justify">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi ea, modi ratione doloremque doloribus ipsa eveniet dicta, nesciunt iure itaque maxime natus cumque magnam illum mollitia. Tenetur quis nisi enim?
@@ -91,7 +85,7 @@
 
             <div id="form_side" class="col-6 p-3">
                 <!-- <img id="illustro" src="./ressources/illustration/prof_form.png" alt=""> -->
-                <form action="add_prof.php" method="POST" class="p-4">
+                <form action="add_client.php" method="POST" class="p-4">
                     <div class="row">
                         <div class="form-group col-6">
                             <label for="nom"> Nom </label>
@@ -105,34 +99,30 @@
 
                     <div class="row">
                         <div class="form-group col-6">
-                            <label for="cni"> Cni </label>
-                            <input type="number" id="cni" class="form-control" name="cni">
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="telephone"> telephone </label>
-                            <input type="number" id="telephone" class="form-control" name="telephone">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-6">
                             <label for="adress"> adress </label>
                             <input type="text" id="adress" class="form-control" name="adress">
                         </div>
                         <div class="form-group col-6">
-                            <label for="niveau"> niveau d'etude </label>
-                            <input type="text" id="niveau" class="form-control" name="niveau">
+                            <label for="tel"> telephone </label>
+                            <input type="number" id="tel" class="form-control" name="telephone">
                         </div>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="matiere"> matiere </label>
-                        <input type="text" id="matiere" class="form-control" name="matiere">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="tarif"> tarif horaire (en CFA) </label>
-                        <input type="number" id="tarif" class="form-control" name="tarif">
+                        <label for="service"> Service </label>
+                        <select name="serv" id="" class="form-control">
+                            <option value="<?php echo($chosen_serv) ?>" selected> <?php echo($chosen_serv) ?> </option>
+                            <?php
+                                foreach($all_serv as $one_serv){
+                                    if($one_serv != $chosen_serv){
+                                        ?>
+                                            <option value="<?php echo($one_serv); ?>"> <?php echo($one_serv); ?>  </option>
+                                        <?php
+                                    }
+                                }
+                            ?>
+                        </select>
+                        
                     </div>
 
                     <div class="form-group align-center text-center">

@@ -8,8 +8,16 @@
         header('location:index.php');
     }
 
-    $query = $pdo->query('SELECT * FROM prof');
-    $all_prof = $query->fetchAll();
+    $query = $pdo->query('SELECT * FROM client');
+    $all_client = $query->fetchAll();
+
+    // $url = ($_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
+    // if($url = "php/M2D/list_client.php"){
+    //     echo('url matched');
+    // }
+    // else{
+    //     echo('not matched');
+    // }
 
 ?>
 
@@ -28,14 +36,13 @@
             <!-- The Sidebar = = = = = = = = = = = = = = = = = -->
     
             <?php include('./sidebar.php') ?>
-    
             
             <!-- Right Content = = = = = = = = = = = = = = = = = -->
     
             <div id="content_side">
 
                 <div class="col-lg-11 mx-auto mt-5 mb-2 text-center">
-                    <p class=" title m-0"> Liste Proffesseur </p>
+                    <p class=" title m-0"> Liste Client </p>
                     <!-- <a class="" href="./add_prof.html"> ajouter un prof </a> -->
                 </div>
 
@@ -48,25 +55,25 @@
                     <tr class="bg-light">
                         <th> Nom</th>
                         <th> Prenom</th>
-                        <th> Cni</th>
                         <th> Adresse</th>
+                        <th> service </th>
                         <th> Tel. </th>
                         <th> Action </th>
                     </tr>
 
                     <?php
-                        if($all_prof != null){
-                            foreach ($all_prof as $one_prof) {
+                        if($all_client != null){
+                            foreach ($all_client as $one_client) {
                                 ?>
                                     <tr>
-                                        <td> <?php echo $one_prof['id'] . " - ". $one_prof['nom']; ?> </td>
-                                        <td> <?php echo $one_prof['prenom']; ?> </td>
-                                        <td> <?php echo $one_prof['cni']; ?> </td>
-                                        <td> <?php echo $one_prof['adress']; ?> </td>
-                                        <td> <?php echo $one_prof['tel']; ?> </td>
+                                        <td> <?php echo $one_client['id'] . " - ". $one_client['nom']; ?> </td>
+                                        <td> <?php echo $one_client['prenom']; ?> </td>
+                                        <td> <?php echo $one_client['adress']; ?> </td>
+                                        <td> <?php echo $one_client['telephone']; ?> </td>
+                                        <td> <?php echo $one_client['serv']; ?> </td>
                                         <td>
                                             <a href="" class="btn btn-primary"> afficher </a>
-                                            <a href="./del_prof.php?id='<?php echo $one_prof['id'] ?>'" class="btn btn-outline-primary" onclick="return confirm('etes vous supprimer de vouloir supprimer cet element')"> supprimer </a>
+                                            <a href="./del_client.php?id='<?php echo $one_client['id'] ?>'" class="btn btn-outline-primary" onclick="return confirm('voulez vous supprimer ce client')"> supprimer </a>
                                         </td>
 
                                     </tr>

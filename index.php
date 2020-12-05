@@ -2,7 +2,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <?php include('./headtag.php') ?>
+    <?php
+        session_start();
+        include('./headtag.php');
+
+        if(isset($_POST['btn_send'])){
+
+        }
+    ?>
+
 
 <body>
 
@@ -36,7 +44,18 @@
                 </div>
                 <a href="#" class="mr-lg-4 mr-md-3 link"> a propos </a>
                 <a href="#sec_rejoindre" class="mr-lg-4 mr-md-3 link"> contacts </a>
-                <a id="con_btn" href="./login.php" class="mr-lg-4 mr-md-3 link"> connexion </a>
+                <?php 
+                    if(isset($_SESSION['email'])){
+                        ?>
+                            <a id="con_btn" href="./list_prof.php" class="mr-lg-4 mr-md-3 link"> admin </a>            
+                        <?php         
+                    }
+                    else{
+                        ?>
+                            <a id="con_btn" href="./login.php" class="mr-lg-4 mr-md-3 link"> connexion </a>            
+                        <?php
+                    }
+                ?>
                 <!-- <a id="con_btn" href="./list_prof.html" class="mr-lg-4 mr-md-3 link"> dashboard </a> -->
             </div>
 
@@ -80,7 +99,7 @@
         </div>
 
         <!-- Section Présentation = = = = = = = = = = = = = =  = -->
-
+        
         <section id="sec_presentation" class=" col-lg-8 mx-auto">
             
 
@@ -142,7 +161,7 @@
                             Informatique, Comptabilité, Technique d’expression et de communication                            
                         </li>
                     </ul>
-                    <button class="btn btn_serv"> Je m'inscrit </button>
+                    <a href="./add_client.php?serv=cour a domicile" class="btn btn_serv"> Je m'inscrit </a>
                 </div>
 
                 <div class="col-md-4 col-sm-5 text-sm-left text-center p-0">
@@ -169,7 +188,7 @@
                         </li>
                     </ul>
 
-                    <button class="btn btn_serv"> Je m'inscrit </button>
+                    <a href="./add_client.php?serv=cour de langue" class="btn btn_serv"> Je m'inscrit </a>
                 </div>
 
                 <div class="col-md-4 col-sm-5 text-sm-left text-center p-0">
@@ -186,7 +205,7 @@
                     <p class=" text-justify">
                         M2D c’est des services de Traduction pour vos documents avec une traduction professionnelle spécialisée dans plusieurs langues pour aborder les aspects linguistiques, culturels et formels ; et d’Interpretariat pour vos événements, colloques ou séminaires.                      
                     </p>
-                    <button class="btn btn_serv"> Je m'inscrit </button>
+                    <a href="./add_client.php?serv=interpretariat et traduction" class="btn btn_serv"> Je m'inscrit </a>
 
                 </div>
 
@@ -208,7 +227,7 @@
                         Juste contactez-nous pour une satisfaction complète.
                     </p>
 
-                    <button class="btn btn_serv"> Je m'inscrit </button>
+                    <a href="./add_client.php?serv=librairie" class="btn btn_serv"> Je m'inscrit </a>
                 
                 </div>
                 
@@ -303,7 +322,7 @@
                 </div>
 
                 <div id="contact_form" class="col-md-8 col-sm-11">
-                    <form action="">
+                    <form action="index.php" method="POST">
                         <div class="form-group row">
 
                             <div class="col-6">
@@ -326,7 +345,10 @@
                         <div class="form-group">
                             <label for=""> Message </label>
                             <textarea name="" rows="5" class="form-control"> </textarea>
+                        </div>
 
+                        <div class="form-group">
+                            <button class="btn btn-success" name="btn_send"> Send </button>
                         </div>
                     </form>
                 </div>

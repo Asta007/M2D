@@ -387,8 +387,16 @@ body,html{
     color : #fff
 }
 
-#add_prof .content form img{
-    
+#add_prof .content #form_side #illustro{
+    position: absolute;
+    bottom: 20px;
+    left: -150px;
+    width: 250px;
+    z-index: -1;
+}
+
+#add_prof .content #form_side form{
+    background-color: #fff;
 }
 
 #add_prof .content #text_side{
@@ -405,3 +413,147 @@ body,html{
     color: #333;
     font-size: 0.9em;
 }
+
+/* Add client = = = = = = = = = = = = = = = = = = = =  */
+
+#add_client{
+
+}
+
+#add_client .content{
+    position: relative;
+}
+
+#add_client .content form{
+    border:solid var(--darkblue) 1px;
+    border-radius: 15px;
+}
+
+#add_client .content .sub_btn{
+    /* background-color: var(--darkblue); */
+    color : #fff
+}
+
+#add_client .content #form_side #illustro{
+    position: absolute;
+    bottom: 20px;
+    left: -150px;
+    width: 250px;
+    z-index: -1;
+}
+
+#add_client .content #form_side form{
+    background-color: #fff;
+}
+
+#add_client .content #text_side{
+
+}
+
+#add_client .content #text_side .big_title{
+    font-size: 1.5em;
+    color: var(--darkblue);
+    font-weight: bolder;
+}
+
+#add_client .content #text_side p{
+    color: #333;
+    font-size: 0.9em;
+}
+
+/* SUCCESS = = = = = = = = = =  */
+
+#success{
+
+}
+
+#success .card_content{
+    height: 150px;
+    width: 100%;
+    max-width: 400px;
+    min-width: 200px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+#success .card_content img{
+    width: 125px;
+    float: left;
+    margin-right: 15px;
+}
+
+#success .card_content .text{
+    width: calc(100%-125px);
+}
+
+#success .card_content .merci{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    color: var(--darkblue);
+    margin: 0;
+}
+
+#success .card_content .desc{
+    color: var(--darkblue);
+}
+
+#success .retour{
+    background-color: var(--darkblue);
+    color: #fff;
+    display: block;
+    width: 300px;
+    margin: auto;
+}
+
+.shake{
+    animation: shake 600ms ;
+}
+
+@keyframes shake {
+    from,
+    11.1%,
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  
+    22.2% {
+      -webkit-transform: skewX(-12.5deg) skewY(-12.5deg);
+      transform: skewX(-12.5deg) skewY(-12.5deg);
+    }
+  
+    33.3% {
+      -webkit-transform: skewX(6.25deg) skewY(6.25deg);
+      transform: skewX(6.25deg) skewY(6.25deg);
+    }
+  
+    44.4% {
+      -webkit-transform: skewX(-3.125deg) skewY(-3.125deg);
+      transform: skewX(-3.125deg) skewY(-3.125deg);
+    }
+  
+    55.5% {
+      -webkit-transform: skewX(1.5625deg) skewY(1.5625deg);
+      transform: skewX(1.5625deg) skewY(1.5625deg);
+    }
+  
+    66.6% {
+      -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
+      transform: skewX(-0.78125deg) skewY(-0.78125deg);
+    }
+  
+    77.7% {
+      -webkit-transform: skewX(0.390625deg) skewY(0.390625deg);
+      transform: skewX(0.390625deg) skewY(0.390625deg);
+    }
+  
+    88.8% {
+      -webkit-transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+      transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+    }
+  }
